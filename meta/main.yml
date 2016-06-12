@@ -1,15 +1,16 @@
 ---
 galaxy_info:
-  author: Mahesh Paolini-Subramanya (dieswaytoofast)
+  author: Mahesh Paolini-Subramanya (@dieswaytoofast)
   description: Ansible role that installs Docker on Ubuntu Xenial.
   license: BSD
-  min_ansible_version: 1.5
+  min_ansible_version: 2.0
   platforms:
   - name: Ubuntu
     versions:
     - xenial
-  categories:
+  galaxy_tags:
   - cloud
-  - system
+  - docker
   - packaging
+  - system
 dependencies: []

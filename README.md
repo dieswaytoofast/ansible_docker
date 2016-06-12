@@ -6,12 +6,15 @@ Installs Docker on Ubuntu 16.04
 Requirements
 ------------
 
-Requires Ansible 1.5 or higher.
+Requires Ansible 2.0 or higher.
 
 Role Variables
 --------------
 
-None. 
+ansible_docker_user.
+If it is defined, then at the end of the install, the user will be added to the
+"docker" group. 
+If it isn't, it'll fail fast
 
 Dependencies
 ------------
@@ -25,7 +28,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: foo
       roles:
-         - { role: dieswaytoofast.ansible_docker, docker_user: barbaz }
+         - { role: dieswaytoofast.ansible_docker, ansible_docker_user: barbaz }
 
 License
 -------
@@ -35,4 +38,4 @@ BSD
 Author Information
 ------------------
 
-dieswaytoofast
+Mahesh Paolini-Subramanya (@dieswaytoofast)

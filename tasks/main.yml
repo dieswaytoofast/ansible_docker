@@ -56,12 +56,22 @@
       state: present
     tags: ansible_docker
 
-  - name: Add the docker_user to the docker group
+  - name: Check if {{ ansible_docker_user }} is an actual user
+    become: yes
+    become_method: sudo
+    getent:
+      database: passwd
+      key: "{{ ansible_docker_user }}"
+    register: ansible_docker_result
+    when: ansible_docker_user is defined
+    tags: ansible_docker
+
+  - name: Add the ansible_docker_user to the docker group
     become: yes
     become_method: sudo
     user:
-      name: "{{ docker_user }}"
+      name: "{{ ansible_docker_user }}"
       groups: docker
       append: yes
-    when: docker_user is defined
+    when: ansible_docker_user is defined
     tags: ansible_docker
