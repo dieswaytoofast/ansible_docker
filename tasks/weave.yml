@@ -1,0 +1,31 @@
+---
+
+# Weave
+- name: Download and Install weave
+  get_url:
+    url: https://git.io/weave
+    dest: "{{ paths.weave }}"
+    mode: 755
+
+# Shut down weave in case it is running
+- name: Stop weave
+  command: "{{ paths.weave }} stop"
+
+- name: Reset the IPAM db
+  command: "{{ paths.weave }} reset --force"
+
+- name: Launch Weave without root host
+  command: "{{ paths.weave }} launch "
+  register: result
+
+- debug: var=result.stdout_lines
+
+- name: Wait for weave to stabilize
+  pause:
+    seconds: "3"
+
+- name: Expose Weave ports
+  command: "{{ paths.weave }} expose"
+  register: result
+
+- debug: var=result.stdout_lines
