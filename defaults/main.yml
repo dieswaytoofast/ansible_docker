@@ -1,6 +1,6 @@
 ---
 
-paths:
+ansible_docker_paths:
   docker: /usr/bin/docker
   weave: /usr/local/bin/weave
 
