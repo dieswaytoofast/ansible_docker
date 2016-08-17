@@ -25,8 +25,13 @@ Example Playbook
 ----------------
 
     - hosts: foo
+      vars:
+        - install_docker: true
+        - install_docker_compose: true
+        - install_weave: true
+        - ansible_docker_user: barbaz
       roles:
-         - { role: dieswaytoofast.ansible_docker_utils, ansible_docker_user: barbaz }
+         - dieswaytoofast.ansible_docker_utils
 
 License
 -------

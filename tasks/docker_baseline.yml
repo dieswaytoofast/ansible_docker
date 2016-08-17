@@ -1,0 +1,23 @@
+---
+
+  - name: Install dependencies
+    become: yes
+    become_method: sudo
+    apt: name={{item}} state=installed update_cache=true
+    with_items:
+      - apt-transport-https
+      - ca-certificates
+      - linux-image-extra-{{ ansible_kernel }}
+    tags: ansible_docker
+
+  - name: Add apt-key
+    become: yes
+    become_method: sudo
+    apt_key: keyserver=hkp://p80.pool.sks-keyservers.net:80 id=58118E89F3A912897C070ADBF76221572C52609D state=present
+    tags: ansible_docker
+
+  - name: Add apt-repo for docker
+    become: yes
+    become_method: sudo
+    apt_repository: repo="deb https://apt.dockerproject.org/repo ubuntu-{{ansible_lsb.codename}} main" state=present
+    tags: ansible_docker

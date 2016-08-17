@@ -2,5 +2,6 @@
 
 ansible_docker_paths:
   docker: /usr/bin/docker
+  docker_compose: /usr/bin/docker-compose
   weave: /usr/local/bin/weave
 
