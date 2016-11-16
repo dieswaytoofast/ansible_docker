@@ -14,4 +14,4 @@
 
 - name: Install Weave
   include: weave.yml
-  when: install_weave is defined
+  when: weave_install is defined

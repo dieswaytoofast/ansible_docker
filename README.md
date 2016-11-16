@@ -28,7 +28,7 @@ Example Playbook
       vars:
         - install_docker: true
         - install_docker_compose: true
-        - install_weave: true
+        - weave_install: true
         - ansible_docker_user: barbaz
       roles:
          - dieswaytoofast.ansible_docker_utils
