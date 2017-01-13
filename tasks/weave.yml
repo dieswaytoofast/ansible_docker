@@ -18,8 +18,6 @@
   command: "{{ ansible_docker_paths.weave }} launch "
   register: result
 
-- debug: var=result.stdout_lines
-
 - name: Wait for weave to stabilize
   pause:
     seconds: "3"
@@ -27,5 +25,3 @@
 - name: Expose Weave ports
   command: "{{ ansible_docker_paths.weave }} expose"
   register: result
-
-- debug: var=result.stdout_lines
