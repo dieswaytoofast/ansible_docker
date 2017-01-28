@@ -4,18 +4,18 @@
 - name: Download and Install weave
   get_url:
     url: https://git.io/weave
-    dest: "{{ ansible_docker_paths.weave }}"
+    dest: "{{ ansible_docker_paths_weave }}"
     mode: 0755
 
 # Shut down weave in case it is running
 - name: Stop weave
-  command: "{{ ansible_docker_paths.weave }} stop"
+  command: "{{ ansible_docker_paths_weave }} stop"
 
 - name: Reset the IPAM db
-  command: "{{ ansible_docker_paths.weave }} reset --force"
+  command: "{{ ansible_docker_paths_weave }} reset --force"
 
 - name: Launch Weave without root host
-  command: "{{ ansible_docker_paths.weave }} launch "
+  command: "{{ ansible_docker_paths_weave }} launch "
   register: result
 
 - name: Wait for weave to stabilize
@@ -23,5 +23,5 @@
     seconds: "3"
 
 - name: Expose Weave ports
-  command: "{{ ansible_docker_paths.weave }} expose"
+  command: "{{ ansible_docker_paths_weave }} expose"
   register: result
