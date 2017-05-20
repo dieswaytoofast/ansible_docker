@@ -4,3 +4,8 @@ ansible_docker_paths_docker: /usr/bin/docker
 ansible_docker_paths_docker_compose: /usr/bin/docker-compose
 ansible_docker_paths_weave: /usr/local/bin/weave
 
+
+# Defaults
+install_docker: false
+install_docker_compose: false
+weave_install: false
