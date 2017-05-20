@@ -2,16 +2,16 @@
 
 - name: Install Baseline
   include: docker_baseline.yml
-  when: install_docker is defined
+  when: install_docker|bool
 
 - name: Install Docker
   include: docker.yml
-  when: install_docker is defined
+  when: install_docker|bool
 
 - name: Install Docker Compose
   include: docker_compose.yml
-  when: install_docker_compose is defined
+  when: install_docker_compose|bool
 
 - name: Install Weave
   include: weave.yml
-  when: weave_install is defined
+  when: weave_install|bool
